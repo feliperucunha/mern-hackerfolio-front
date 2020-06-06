@@ -11,9 +11,10 @@ import { Close as CloseIcon } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import Api from "../../service/Api";
+
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "100vh",
+    height: "80vh",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -68,6 +69,15 @@ export default function NewEventForm() {
       })
       .catch((err) => console.log(err));
   };
+
+  const handleClearForm = () => {
+    const newEvent = {
+      name: "",
+      social_media_link: "",
+      date: "",
+      description: "",
+    };
+  };
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -82,14 +92,14 @@ export default function NewEventForm() {
           <TextField
             style={{ width: "70%" }}
             variant="outlined"
-            label="Nome do Evento"
+            label="Event Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
           <TextField
             variant="outlined"
             style={{ width: "25%", marginLeft: "5%" }}
-            label="Data do Evento"
+            label="Event Date"
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
@@ -99,14 +109,14 @@ export default function NewEventForm() {
         <TextField
           className={classes.textInput}
           variant="outlined"
-          label="Link de Midia Social"
+          label="Social Media Link"
           value={socialMediaLink}
           onChange={(e) => setSocialMediaLink(e.target.value)}
         />
         <TextField
           className={classes.textInput}
           variant="outlined"
-          label="Descriçao do Evento"
+          label="Description"
           multiline={true}
           rows={5}
           value={description}
@@ -115,6 +125,7 @@ export default function NewEventForm() {
       </Paper>
       <Button
         onClick={handleFormSubmit}
+        onChange={handleClearForm}
         className={classes.button}
         variant="contained"
         color="primary"
@@ -122,7 +133,7 @@ export default function NewEventForm() {
         {isWaitingResponse ? (
           <CircularProgress size={24} color="inherit" />
         ) : (
-          "Criar Evento"
+          "Submit Event"
         )}
       </Button>
       <Snackbar

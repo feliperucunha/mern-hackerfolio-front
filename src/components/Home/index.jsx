@@ -14,7 +14,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "100vh",
+    height: "80vh",
     display: "flex",
     justifyContent: "space-evenly",
     alignItems: "flex-start",
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "flex-start",
     width: "40%",
-    height: "600px",
+    height: "500px",
     marginTop: "5% ",
     paddingTop: "10px",
   },

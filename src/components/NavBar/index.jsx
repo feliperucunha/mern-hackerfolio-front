@@ -24,9 +24,9 @@ export default function ButtonAppBar() {
   return (
     <div className={classes.root}>
       <AppBar position="static" color="transparent">
-        <Toolbar style={{ minHeight: "80px" }}>
+        <Toolbar style={{ minHeight: "100px" }}>
           <Typography variant="h6" className={classes.title}>
-            <Link style={{ textDecoration: "none", color: "inherit" }} to="/">
+            <Link style={{ textDecoration: "none", color: "inherit", fontSize: "25px", fontWeight: "bold" }} to="/">
               HACKERFOLIO
             </Link>
           </Typography>
